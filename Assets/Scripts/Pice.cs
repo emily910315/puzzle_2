@@ -9,7 +9,7 @@ public class Pice : MonoBehaviour
     public bool followEnable = true;//是否跟著滑鼠
     public bool hasPut;
     private Grid triggerGrid;
-    private int currentGrid = -1;
+    public int currentGrid = -1;
     void Start()
     {
         startpos = transform.position;
@@ -29,7 +29,7 @@ public class Pice : MonoBehaviour
         }
         
     }
-
+ 
     private void OnMouseDrag()
     {
         if (followEnable == false)
@@ -60,7 +60,7 @@ public class Pice : MonoBehaviour
         {
             transform.position = startpos;
         }
-        
+
     }
 
 
