@@ -16,43 +16,30 @@ public class GridManager : MonoBehaviour
     [SerializeField] Text timerText;  // 新增 Text 變數
     private bool isGameOver = false;
     private float startTime;
+
     void gamemeunopen()
     {
         Time.timeScale = 0f;
         bg.SetActive(true);
-        
     }
 
     public void gamemeunclose()
     {
         Time.timeScale = 1f;
         bg.SetActive(false);
-        SceneManager.LoadScene("SampleSceen");
-
-
+        instruction.SetActive(false);
     }
 
     public void instructionopen()
     {
         Time.timeScale = 0f;
         instruction.SetActive(true);
-
-    }
-
-    public void instructionclose()
-    {
-        Time.timeScale = 1f;
-        bg.SetActive(false);
-        instruction.SetActive(false);
-        SceneManager.LoadScene("SampleSceen");
     }
 
     public void restart()
     {
-        win.SetActive(false);
-        gamemeunopen();   
         CancelInvoke("UpdateTimer");// 這裡加入取消計時器的程式碼
-        SceneManager.LoadScene("SampleSceen");
+        SceneManager.LoadScene("SampleScene");
     }
 
     private void Awake()
@@ -69,7 +56,7 @@ public class GridManager : MonoBehaviour
 
     void Update()
     {
-        if ( !isGameOver)
+        if (!isGameOver)
         {
             CheckGameOver();
         }
@@ -102,7 +89,7 @@ public class GridManager : MonoBehaviour
         UpdateTimer();
     }
 
-    
+
     void UpdateTimer()
     {
         float currentTime = Time.time - startTime;
@@ -122,7 +109,7 @@ public class GridManager : MonoBehaviour
         {
             Debug.Log("finsh!");
             // 隱藏所有 Grid
-            
+
         }
     }
 }
