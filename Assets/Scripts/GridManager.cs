@@ -17,6 +17,10 @@ public class GridManager : MonoBehaviour
     private bool isGameOver = false;
     private float startTime;
 
+    public void Quit()
+    {
+        Application.Quit();
+    }
     void gamemeunopen()
     {
         Time.timeScale = 0f;
